@@ -21,7 +21,6 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
     }
 
 
-      StatusBar.backgroundColorByName('green');
 
 
   });
