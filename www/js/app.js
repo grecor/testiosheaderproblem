@@ -18,6 +18,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+      if (parseFloat(window.device.version) >= 7.0) {
+          document.body.style.marginTop = "20px";
+      }
   });
 })
 
