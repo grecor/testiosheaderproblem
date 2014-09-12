@@ -18,6 +18,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+      /*
       $cordovaStatusbar.overlaysWebView(true)
 
       $cordovaStatusBar.style(1) //Light
@@ -28,6 +29,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
       $cordovaStatusbar.styleColor('black')
 
       $cordovaStatusbar.styleHex('#FF0000') //red
+      */
 
 
   });
