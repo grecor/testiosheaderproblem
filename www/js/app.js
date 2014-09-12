@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$cordovaStatusbar) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,11 +18,18 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-      /*
-      if (parseFloat(window.device.version) >= 7.0) {
-          document.body.style.marginTop = "20px";
-      }
-      */
+      $cordovaStatusbar.overlaysWebView(true)
+
+      $cordovaStatusBar.style(1) //Light
+      $cordovaStatusBar.style(2) //Black, transulcent
+      $cordovaStatusBar.style(3) //Black, opaque
+
+
+      $cordovaStatusbar.styleColor('black')
+
+      $cordovaStatusbar.styleHex('#FF0000') //red
+
+
   });
 })
 
