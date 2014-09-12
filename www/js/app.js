@@ -17,21 +17,11 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
-        alert('asdf');
-        StatusBar.backgroundColorByName('green');
+
     }
-      /*
-      $cordovaStatusbar.overlaysWebView(true)
-
-      $cordovaStatusBar.style(1) //Light
-      $cordovaStatusBar.style(2) //Black, transulcent
-      $cordovaStatusBar.style(3) //Black, opaque
 
 
-      $cordovaStatusbar.styleColor('black')
-
-      $cordovaStatusbar.styleHex('#FF0000') //red
-      */
+      StatusBar.backgroundColorByName('green');
 
 
   });
