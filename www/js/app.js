@@ -17,6 +17,8 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
+        alert('asdf');
+        StatusBar.backgroundColorByName('green');
     }
       /*
       $cordovaStatusbar.overlaysWebView(true)

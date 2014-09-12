@@ -15,6 +15,8 @@ angular.module('starter.controllers', [])
        // $cordovaStatusbar.hide();
 
         //$cordovaStatusbar.show();
+       // $cordovaStatusbar.backgroundColorByName('green');
+        //StatusBar.backgroundColorByName('green');
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
