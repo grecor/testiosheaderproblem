@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform,$cordovaStatusbar) {
+.run(function($ionicPlatform, $ionicPopup) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -17,13 +17,14 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers', 'starter.s
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
-
     }
-
-
-
-
   });
+        var alertPopup = $ionicPopup.alert({
+            title: '<h1>Disclaimer</h1>',
+            template: 'from run ionicPlatform.ready()',
+            okText: "<b>Accept Disclaimer</b>"
+        });
+      // alert('in ionicPlatform.ready()');
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
