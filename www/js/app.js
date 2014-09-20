@@ -18,6 +18,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       //StatusBar.styleDefault();
     }
+      var alertPopup = $ionicPopup.alert({
+          title: '<h1>Disclaimer</h1>',
+          template: 'from run.ready ionicPlatform.ready()',
+          okText: "<b>Accept Disclaimer</b>"
+      });
   });
         var alertPopup = $ionicPopup.alert({
             title: '<h1>Disclaimer</h1>',
