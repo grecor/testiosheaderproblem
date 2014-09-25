@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$ionicPlatform, $ionicPopup) {
+.controller('DashCtrl', function($scope,$ionicPlatform, $ionicPopup, FlightDataService) {
        // alert('in dash controler');
 
         $scope.showDisclaimer = function (str) {
@@ -10,6 +10,17 @@ angular.module('starter.controllers', [])
                 okText: "<b>Accept Disclaimer</b>"
             });
         }
+        $scope.data = { "airlines" : [], "search" : '' };
+
+
+        $scope.search = ionic.debounce(function() {
+            FlightDataService.searchAirlines($scope.data.search).then(
+                function(matches) {
+                    $scope.data.airlines = matches;
+                }
+            )}, 300);
+
+        /*
         $ionicPlatform.ready(function () {
             var disclaimerAccepted = window.localStorage['asdf'];
             if (!disclaimerAccepted) {
@@ -27,7 +38,7 @@ angular.module('starter.controllers', [])
             //alert('platform ready: ' + window.localStorage['sdfY');
 
         });
-
+*/
 
 })
 

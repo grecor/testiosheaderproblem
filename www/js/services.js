@@ -23,4 +23,56 @@ angular.module('starter.services', [])
       return friends[friendId];
     }
   }
-});
+})
+
+.factory('FlightDataService', function($q, $timeout) {
+
+
+    var searchAirlines = function(searchFilter) {
+
+        console.log('Searching airlines for ' + searchFilter);
+
+        var deferred = $q.defer();
+        // if (searchFilter) {
+        console.log ('has search value');
+        if (searchFilter) {
+            // searchFilter = 'asdfsadfsadfsdfsafd';
+            var matches = airlines.filter(function (airline) {
+                //if(airline.Ticker.toLowerCase().indexOf(searchFilter.toLowerCase()) !== -1 ) return true;
+                return  airline.Ticker.substring(0, searchFilter.length) === searchFilter;
+                //return  airline.Ticker === searchFilter;
+                //return  airline.substring( 0, searchFilter.length).toLowerCase() === searchFilter.toLowerCase();
+            })
+            //console.log(matches);
+            /*
+             var matches = [];
+             for (i = 0; i < airlines.length; i++) {
+             if (airlines[i].Ticker.substring( 0, searchFilter.length) === searchFilter)
+             matches.push(airlines[i]);
+
+             }
+             return matches;
+             */
+        }
+        else {
+            matches = [];
+        }
+
+
+        $timeout( function(){
+            console.log("in timeeout");
+            deferred.resolve( matches.splice(0,10) );
+
+        }, 100);
+
+
+        return deferred.promise;
+
+    };
+
+    return {
+
+        searchAirlines : searchAirlines
+
+    }
+})

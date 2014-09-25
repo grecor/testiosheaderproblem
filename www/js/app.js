@@ -17,19 +17,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       //StatusBar.styleDefault();
-    }
+        alert('in StatusBar');
+    }/*
       var alertPopup = $ionicPopup.alert({
           title: '<h1>Disclaimer</h1>',
           template: 'from run.ready ionicPlatform.ready()',
           okText: "<b>Accept Disclaimer</b>"
-      });
-  });
+      });*/
+  });/*
         var alertPopup = $ionicPopup.alert({
             title: '<h1>Disclaimer</h1>',
             template: 'from run ionicPlatform.ready()',
             okText: "<b>Accept Disclaimer</b>"
-        });
+        });*/
       // alert('in ionicPlatform.ready()');
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
