@@ -3,14 +3,23 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope,$ionicPlatform, $ionicPopup, FlightDataService, $ionicModal) {
        // alert('in dash controler');
 
-        $ionicModal.fromTemplateUrl('templates/modal.html', {
+        $ionicModal.fromTemplateUrl('templates/modal.html',
+            function($ionicModal) {
+               $scope.modal= $ionicModal;}, {
+
+                cope: $scope,
+                focusFirstInput: true,
+                animation: 'slide-in-right'
+
+        });
+            /*
             scope: $scope,
             focusFirstInput: true,
             animation: 'slide-in-right'
 
         }).then(function(modal) {
             $scope.modal = modal;
-        });
+        });*/
 
         $scope.showDisclaimer = function (str) {
             var alertPopup = $ionicPopup.alert({
