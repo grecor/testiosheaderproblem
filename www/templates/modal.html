@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Stocks</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader item-input-inset">
+        <label class="item-input-wrapper" is-focused="true">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input type="search" placeholder=" Search" ng-change="search()" ng-model="data.search">
+        </label>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list">
+            <ion-list>
+                <ion-item class="item stock" ng-click="selectStock(stock.Ticker, stock.QuandlCode)"
+                          ng-repeat="stock in data.stocks">
+                    <span class="symbol"> {{stock.Ticker}}</span> <span class="exchange">{{ stock.QuandlCode.substring(stock.QuandlCode.indexOf('/') + 1, stock.QuandlCode.indexOf('_')) }}</span><br>
+                    <span class="companyName">{{ stock.Name}}</span>
+                </ion-item>
+            </ion-list>
+
+        </div>
+    </ion-content>
+</ion-modal-view>

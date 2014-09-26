@@ -1,7 +1,16 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$ionicPlatform, $ionicPopup, FlightDataService) {
+.controller('DashCtrl', function($scope,$ionicPlatform, $ionicPopup, FlightDataService, $ionicModal) {
        // alert('in dash controler');
+
+        $ionicModal.fromTemplateUrl('templates/modal.html', {
+            scope: $scope,
+            focusFirstInput: true,
+            animation: 'slide-in-right'
+
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
 
         $scope.showDisclaimer = function (str) {
             var alertPopup = $ionicPopup.alert({
