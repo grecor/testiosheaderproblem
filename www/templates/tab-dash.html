@@ -3,10 +3,8 @@
     <h1>Dash</h1>
       <label class="item-input-wrapper">
           <i class="icon ion-ios7-search placeholder-icon"></i>
-          <input type="search" placeholder="Search" ng-change="search()" ng-model="data.search"  ng-click="modal.show()">
+          <input type="search" placeholder="Search" ng-change="search()" ng-model="stock"  ng-click="modal.show()">
       </label>
-      <div class="list">
-          <li class="item" ng-repeat="airline in data.airlines">{{airline.Ticker}} - {{ airline.Name}} -{{ airline.QuandlCode }}</li>
-      </div>
+
   </ion-content>
 </ion-view>

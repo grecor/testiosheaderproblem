@@ -1,62 +1,38 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$ionicPlatform, $ionicPopup, FlightDataService, $ionicModal) {
+.controller('DashCtrl', function($scope,$ionicPlatform, $ionicPopup, StockDataService, $ionicModal) {
        // alert('in dash controler');
 
-        $ionicModal.fromTemplateUrl('templates/modal.html',
-            function($ionicModal) {
-               $scope.modal= $ionicModal;}, {
 
-                cope: $scope,
-                focusFirstInput: true,
-                animation: 'slide-in-right'
 
-        });
-            /*
+        $scope.data = { "stocks" : [], "search" : '' };
+
+
+        $scope.search = ionic.debounce(function() {
+            StockDataService.searchStocks($scope.data.search.toUpperCase()).then(
+                function(matches) {
+                    $scope.data.stocks = matches;
+                }
+            )}, 300);
+
+        $ionicModal.fromTemplateUrl('templates/modal.html', {
             scope: $scope,
             focusFirstInput: true,
             animation: 'slide-in-right'
 
         }).then(function(modal) {
             $scope.modal = modal;
-        });*/
+        });
 
-        $scope.showDisclaimer = function (str) {
-            var alertPopup = $ionicPopup.alert({
-                title: '<h1>Disclaimer</h1>',
-                template: str,
-                okText: "<b>Accept Disclaimer</b>"
-            });
+        $scope.selectStock = function (symbol, quandlCode) {
+            console.log('symbol = ' + symbol);
+            console.log('quandlCode = ' + quandlCode);
+            $scope.data.search = null;
+            $scope.data.stocks = null;
+            $scope.stock = symbol;
+            $scope.quandlCode = quandlCode;
+            $scope.modal.hide();
         }
-        $scope.data = { "airlines" : [], "search" : '' };
-
-
-        $scope.search = ionic.debounce(function() {
-            FlightDataService.searchAirlines($scope.data.search).then(
-                function(matches) {
-                    $scope.data.airlines = matches;
-                }
-            )}, 300);
-
-        /*
-        $ionicPlatform.ready(function () {
-            var disclaimerAccepted = window.localStorage['asdf'];
-            if (!disclaimerAccepted) {
-                $scope.showDisclaimer('from ionicPlatform.ready()');
-            }
-           // alert('platform ready: ' + window.localStorage['asdf']);
-
-        });
-
-        ionic.Platform.ready(function () {
-            var disclaimerAccepted = window.localStorage['sdf'];
-            if (!disclaimerAccepted) {
-                $scope.showDisclaimer('from ionic.Plaform.ready()');
-            }
-            //alert('platform ready: ' + window.localStorage['sdfY');
-
-        });
-*/
 
 })
 
